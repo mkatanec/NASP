@@ -1,0 +1,11 @@
+/target/
+.mvn
+
+*.log
+
+.idea
+*.iws
+*.iml
+*.ipr
+
+data.txt
