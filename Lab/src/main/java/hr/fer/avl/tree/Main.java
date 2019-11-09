@@ -13,7 +13,11 @@ public class Main {
         File file;
         Scanner scanner = new Scanner(System.in);
 
-        if(args.length != 0){
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(args[i]);
+        }
+
+        if (args.length != 0) {
             file = new File(args[0]);
         } else {
             file = new File("data.txt");
@@ -29,17 +33,18 @@ public class Main {
 
         avlTreeService.printAVLTree(root);
 
-        System.out.println("inorder");
-        avlTreeService.inOrderPrint(root);
-
         String nextLine;
 
-        while (scanner.hasNext()){
+        while (scanner.hasNext()) {
             nextLine = scanner.nextLine();
 
-            root = avlTreeService.insert(root, Integer.parseInt(nextLine));
+            try {
+                root = avlTreeService.insert(root, Integer.parseInt(nextLine));
 
-            avlTreeService.printAVLTree(root);
+                avlTreeService.printAVLTree(root);
+            } catch (Exception e) {
+                System.out.println("Nije int");
+            }
         }
     }
 }
